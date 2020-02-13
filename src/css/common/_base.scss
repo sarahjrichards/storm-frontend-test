@@ -1,14 +1,18 @@
-body, html {
+body, html, main{
 	font-family: 'Roboto', sans-serif;
 	background: $background-color;
 	height: 100%;
 }
 
 .container {
-	max-width: 33%;
-	margin: 0 auto;
+	margin: 0 15px;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	align-content: center;
+
+	@media (min-width: $breakpoint-md) {
+		max-width: 33%;
+		margin: 0 auto;
+	}
 }
