@@ -1,4 +1,3 @@
-import Vue from 'vue/dist/vue.common.js';
 import axios from 'axios';
 
 let template =
@@ -26,9 +25,28 @@ export let Task = {
 	methods: {
 		toggleDone: function() {
 			this.isDone = !this.isDone;
+			axios
+			.patch(
+				'http://localhost:4000/api/task/' + this.id, 
+				{ isDone: this.isDoneToString() }
+			)
+			.then(() => {
+				console.log("success");
+			})
+			.catch((error) => {
+				console.log('error - unable to load data file');
+				console.log(error);
+			});	
 		},
 		isDoneToBoolean() {
 			return (this.isDoneInitial === 'true');
+		},
+		isDoneToString() {
+			if (this.isDone) {
+				return "true";
+			} else {
+				return "false";
+			}
 		}
 	},
 	template: template,
