@@ -1,4 +1,14 @@
 .task {
 	padding: 10px;
 	@include font-size(24, 24);
+
+	// @for $i from 0 through 2 {
+	// 	&--importance-#{$i} {
+	// 		@debug map.get($importance, #{$i});
+	// 	}
+	// }
+
+	&__title {
+		cursor: pointer;
+	}
 }
