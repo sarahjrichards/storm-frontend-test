@@ -1,12 +1,26 @@
 .task {
-	padding: 10px;
-	@include font-size(24, 24);
+	$opacity: 0.6;
 
-	// @for $i from 0 through 2 {
-	// 	&--importance-#{$i} {
-	// 		@debug map.get($importance, #{$i});
-	// 	}
-	// }
+	padding: 15px;
+	margin-bottom: 8px;
+	@include font-size(24, 24);
+	font-weight: bold;
+
+	@for $i from 0 through length($importance)-1 {
+		&--importance-#{$i} {
+			$currentColor: map-get($importance, #{$i});
+
+			color: rgba($text-color, $opacity + 0.2);
+			background-color: rgba($currentColor, $opacity);
+			border-left: 5px solid $currentColor;
+
+			@if ($opacity - 0.2) > 0.2 {
+				$opacity: $opacity - 0.2;
+			} @else {
+				$opacity: 0.2;
+			}
+		}
+	} 
 
 	&__title {
 		cursor: pointer;
