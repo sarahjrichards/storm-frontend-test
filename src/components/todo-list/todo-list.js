@@ -4,14 +4,22 @@ import axios from 'axios';
 import { Task } from '../task/task.js';
 
 let template =/*html*/`
-		<ul>
-			<Task v-for="task in this.tasks" v-bind:key="task.id" :title="task.title"/>
-		</ul>
+		<section class="container">
+			<div class="todo">
+				<h1 class="todo__header h3">
+					{{ this.header }}
+				</h1>
+				<ul class="todo__list">
+					<Task v-for="task in this.tasks" v-bind:key="task.id" :title="task.title"/>
+				</ul>
+			</div>
+		</section>
 `;
 
 export let ToDo = {
 	data: function() {
 		return {
+			header: "Todo list",
 			tasks: []
 		}
 	},

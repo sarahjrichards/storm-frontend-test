@@ -1,0 +1,5 @@
+.h3 {
+	@include font-size(42, 54);
+	font-weight: bold;
+	letter-spacing: 1px;
+}

@@ -1,0 +1,5 @@
+// font sizes declared after CSS reset has been applied
+@mixin font-size($font-size: 16, $line-height: 18) {
+	font-size: ($font-size / 16) + rem;
+	line-height: $line-height / $font-size;
+}
