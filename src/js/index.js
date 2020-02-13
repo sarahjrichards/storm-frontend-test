@@ -1,4 +1,5 @@
 import '../css/index.scss';
+import 'es6-promise/auto';
 import Vue from 'vue/dist/vue.common.js';
 import axios from 'axios';
 import { ToDo } from '../components/todo-list/todo-list.js';
