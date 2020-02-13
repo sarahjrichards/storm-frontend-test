@@ -2,5 +2,5 @@
     "plugins": [
         ["module:fast-async"]
 	],
-	"presets": ['@babel/preset-env']
+	"presets": ["@babel/preset-env"]
 }
