@@ -10,7 +10,7 @@ let template =/*html*/`
 					{{ this.header }}
 				</h1>
 				<ul class="todo__list">
-					<Task v-for="task in this.tasks" v-bind:key="task.id" :title="task.title" :id="task.id" :importance="task.importance"/>
+					<Task v-for="task in this.tasks" v-bind:key="task.id" :title="task.title" :id="task.id" :importance="task.importance" :isDoneInitial="task.isDone"/>
 				</ul>
 			</form>
 		</section>
