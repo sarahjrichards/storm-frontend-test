@@ -3,9 +3,24 @@
 	border-bottom: 8px solid $border-color;
 	padding: 40px 0;
 	width: 100%;
+	min-height: 300px;
+	position: relative;
 
 	&__header {
 		margin-bottom: 40px;
 		padding-left: 24px;
+	}
+
+	&__loading {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background: white;
+		display: flex;
+		align-items: center;
+		align-content: center;
+		justify-content: center;
 	}
 }
