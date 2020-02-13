@@ -12,7 +12,11 @@ body, html, main{
 	align-content: center;
 
 	@media (min-width: $breakpoint-md) {
-		max-width: 33%;
+		max-width: 66%;
 		margin: 0 auto;
+	}
+
+	@media (min-width: $breakpoint-lg) {
+		max-width: 33%;
 	}
 }
