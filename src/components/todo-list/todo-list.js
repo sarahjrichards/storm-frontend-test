@@ -5,7 +5,7 @@ import { Task } from '../task/task.js';
 
 let template =/*html*/`
 		<ul>
-			<Task v-for="task in this.tasks" v-bind:data="task" v-bind:key="task.id" :title="task.title"/>
+			<Task v-for="task in this.tasks" v-bind:key="task.id" :title="task.title"/>
 		</ul>
 `;
 
