@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { Task } from '../task/task.js';
+import { AddButton } from '../add-button/add-button.js';
 
 let template =/*html*/`
 		<section class="container">
@@ -12,6 +13,7 @@ let template =/*html*/`
 					<h1 class="todo__header h3">
 						{{ this.header }}
 					</h1>
+					<AddButton />
 				</header>
 				<section>
 					<ul class="todo__list">
@@ -43,7 +45,8 @@ export let ToDo = {
 		});	
 	},
 	components: {
-		Task
+		Task,
+		AddButton
 	},
 	template: template,
 };
