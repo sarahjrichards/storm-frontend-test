@@ -1,0 +1,73 @@
+.add-button {
+	&__button {
+		-webkit-appearance: none;
+		position: relative;
+		background: $button-color;
+		color: $button-text-color;
+		padding: 18px 20px 15px 50px;
+		margin-right: 5px;
+		border-radius: 25px;
+		border: 1px solid white;
+		box-shadow: 0px 3px 3px 3px rgba($text-color, 0.05);
+		@include font-size(24, 24);
+
+		&::before {
+			content: "+";
+			@include font-size(48, 48);
+			position: absolute;
+			left: 15px;
+			top: 6px;
+		}
+
+		&--primary {
+			background-color: $button-primary-color;
+			color: $button-primary-text-color;
+		}
+	}
+
+	&__errors {
+		border: 1px solid red;
+		padding: 20px;
+		margin: 20px 0;
+	}
+
+	&__button--save{
+		padding-left: 20px;
+		
+		&::before {
+			display: none;
+			padding-left: 20px;
+		}
+	}
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: $background-color;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+	}
+
+	&__form {
+		width: 100%;
+	}
+
+	&__title-input,
+	&__form-label,
+	&__importance-input {
+		width: calc(100% - 10px);
+		display: block;
+		@include font-size(24, 24);
+		padding: 5px;
+		margin-bottom: 15px;
+	}
+
+	&__form-label {
+		margin-bottom: 5px;
+		padding-left: 0;
+	}
+}

@@ -9,8 +9,8 @@ let template =/*html*/`
 				<div class="todo__loading" v-if="this.loading">
 					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 				</div>
-				<header>
-					<h1 class="todo__header h3">
+				<header class="todo__header">
+					<h1 class="todo__header__heading h3">
 						{{ this.header }}
 					</h1>
 					<AddButton />
