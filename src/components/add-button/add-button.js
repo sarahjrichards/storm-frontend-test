@@ -59,18 +59,30 @@ export let AddButton = {
 			}
 
 			if(this.errors.length === 0) {
-				console.log(this.taskTitle, this.taskImportance);
-				this.errors = [];
-				this.taskTitle = '';
-				this.taskImportance = '';
-				this.dirty = false;
-			} else {
-				return;
-			}
+				axios
+				.post(
+					'http://localhost:4000/api/task/', 
+					{ 
+						title: this.taskTitle,
+						importance: this.taskImportance
+					}
+				)
+				.then((response) => {
+					this.$emit('addition', true);
+					this.errors = [];
+					this.taskTitle = '';
+					this.taskImportance = '';
+					this.dirty = false;
 
-			if (!e.target.hasAttribute('data-addAnother')) {
-				this.overlayVisible = false;
-			}
+					if (!e.target.hasAttribute('data-addAnother')) {
+						this.overlayVisible = false;
+					}
+				})
+				.catch((error) => {
+					console.log('error - unable to add task');
+					console.log(error);
+				});		
+			} 
 		}
 	},
 	template: template,

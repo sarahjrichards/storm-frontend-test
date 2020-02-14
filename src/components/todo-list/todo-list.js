@@ -13,7 +13,7 @@ let template =/*html*/`
 					<h1 class="todo__header__heading h3">
 						{{ this.header }}
 					</h1>
-					<AddButton />
+					<AddButton v-on:addition="updateData"  />
 				</header>
 				<section>
 					<ul class="todo__list">
@@ -33,16 +33,21 @@ export let ToDo = {
 		}
 	},
 	mounted () {
-		axios
-		.get('http://localhost:4000/api/task')
-		.then((response) => {
-			this.tasks = response.data;
-			this.loading = false;
-		})
-		.catch((error) => {
-			console.log('error - unable to load data file');
-			console.log(error);
-		});	
+		this.updateData();
+	},
+	methods: {
+		updateData: function() {
+			axios
+			.get('http://localhost:4000/api/task')
+			.then((response) => {
+				this.tasks = response.data;
+				this.loading = false;
+			})
+			.catch((error) => {
+				console.log('error - unable to load data file');
+				console.log(error);
+			});	
+		}
 	},
 	components: {
 		Task,
