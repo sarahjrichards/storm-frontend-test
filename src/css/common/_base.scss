@@ -17,7 +17,7 @@ body, html, main{
 		margin: 0 auto;
 	}
 
-	@media (min-width: $breakpoint-lg) {
+	@media (min-width: $breakpoint-xl) {
 		max-width: 33%;
 	}
 }

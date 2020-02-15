@@ -2,9 +2,11 @@ import axios from 'axios';
 
 let template =
 /*html*/`<div class="add-button" :class="{'add-button--overlay-open': overlayVisible }">
-			<button type="button" class="add-button__button" v-on:click='overlayVisible = !overlayVisible'>Add item</button>
-			<div class="add-button__overlay" v-if="overlayVisible">
+			<button type="button" class="add-button__button" v-on:click="toggleOverlay" v-if="!overlayVisible">Add item</button>
+			<div class="add-button__overlay" v-if="overlayVisible" role="dialog" aria-labelledby="dialogTitleAdd">
 				<div class="add-button__form">
+					<h2 class="h4" id="dialogTitleAdd">Add a task</h2>
+					<button type="button" class="add-button__close" v-on:click="toggleOverlay" v-if="overlayVisible"><span class="u-visually-hidden">Close add task overlay</span></button>
 					<div class="add-button__errors" v-if="errors.length">
 						<ul>
 							<li class="u-error" v-for="error in errors">{{ error }}</li>
@@ -45,6 +47,13 @@ export let AddButton = {
 		}
 	},
 	methods: {
+		toggleOverlay: function() {
+			this.$emit('toggleOverlay', true);
+			this.overlayVisible = !this.overlayVisible;
+			if	(!this.overlayVisible) {
+				this.resetForm();
+			}
+		},
 		saveTask: function(e) {
 
 			this.errors = [];
@@ -69,10 +78,7 @@ export let AddButton = {
 				)
 				.then((response) => {
 					this.$emit('addition', true);
-					this.errors = [];
-					this.taskTitle = '';
-					this.taskImportance = '';
-					this.dirty = false;
+					this.resetForm();
 
 					if (!e.target.hasAttribute('data-addAnother')) {
 						this.overlayVisible = false;
@@ -83,6 +89,12 @@ export let AddButton = {
 					console.log(error);
 				});		
 			} 
+		},
+		resetForm: function() {
+			this.errors = [];
+			this.taskTitle = '';
+			this.taskImportance = '';
+			this.dirty = false;
 		}
 	},
 	template: template,

@@ -1,4 +1,10 @@
 .add-button {
+	position: relative;
+
+	&--overlay-open {
+		width: 100%;
+	}
+
 	&__button {
 		-webkit-appearance: none;
 		position: relative;
@@ -25,6 +31,20 @@
 		}
 	}
 
+	&__close {
+		-webkit-appearance: none;
+		position: absolute;
+		top: 30px;
+		right: 15px;
+		background: none;
+		border: none;
+
+		&::before {
+			content: "X";
+			@include font-size(32, 32);	
+		}
+	}
+
 	&__errors {
 		border: 1px solid red;
 		padding: 20px;
@@ -41,28 +61,23 @@
 	}
 
 	&__overlay {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: $background-color;
-		z-index: 1;
+		width: 100%;
 	}
 
 	&__form {
 		width: 100%;
-		margin-top: 40px;
+		margin: 40px 0;
 	}
 
 	&__title-input,
 	&__form-label,
 	&__importance-input {
-		width: calc(100% - 10px);
+		width: 100%;
+		box-sizing: border-box;
 		display: block;
 		@include font-size(24, 24);
 		padding: 5px;
-		margin-bottom: 15px;
+		margin-bottom: 25px;
 	}
 
 	&__form-label {

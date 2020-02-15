@@ -10,12 +10,12 @@ let template =/*html*/`
 					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 				</div>
 				<header class="todo__header">
-					<h1 class="todo__header__heading h3">
+					<h1 class="todo__header__heading h3"  v-if="!overlayVisible">
 						{{ this.header }}
 					</h1>
-					<AddButton v-on:addition="updateData"  />
+					<AddButton v-on:addition="updateData" v-on:toggleOverlay="toggleOverlay"/>
 				</header>
-				<section>
+				<section v-if="!overlayVisible">
 					<ul class="todo__list">
 						<Task v-for="task in this.tasks" v-bind:key="task.id" :title="task.title" :id="task.id" :importance="task.importance" :isDoneInitial="task.isDone"/>
 					</ul>
@@ -29,7 +29,8 @@ export let ToDo = {
 		return {
 			header: "Todo list",
 			tasks: [],
-			loading: true
+			loading: true,
+			overlayVisible: false
 		}
 	},
 	mounted () {
@@ -47,6 +48,9 @@ export let ToDo = {
 				console.log('error - unable to load data file');
 				console.log(error);
 			});	
+		},
+		toggleOverlay: function() {
+			this.overlayVisible = !this.overlayVisible
 		}
 	},
 	components: {
