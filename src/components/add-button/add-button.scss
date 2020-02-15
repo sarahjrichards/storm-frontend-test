@@ -8,10 +8,11 @@
 	&__button {
 		-webkit-appearance: none;
 		position: relative;
+		width: 100%;
 		background: $button-color;
 		color: $button-text-color;
-		padding: 18px 20px 15px 50px;
-		margin-right: 5px;
+		padding: 18px 20px 15px 55px;
+		margin: 0 5px 30px 0;
 		border-radius: 25px;
 		border: 1px solid white;
 		box-shadow: 0px 3px 3px 3px rgba($text-color, 0.05);
@@ -29,19 +30,29 @@
 			background-color: $button-primary-color;
 			color: $button-primary-text-color;
 		}
+
+		@media (min-width: $breakpoint-md) {
+			width: auto;
+			margin-bottom: 0;
+		}
 	}
 
 	&__close {
 		-webkit-appearance: none;
 		position: absolute;
-		top: 30px;
-		right: 15px;
+		top: 3px;
+		right: 0;
 		background: none;
 		border: none;
 
 		&::before {
 			content: "X";
 			@include font-size(32, 32);	
+		}
+
+		@media (min-width: $breakpoint-md) {
+			top: 30px;
+			right: 15px;
 		}
 	}
 

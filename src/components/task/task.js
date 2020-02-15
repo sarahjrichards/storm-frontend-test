@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 let template =
-/*html*/`<li class="task" :class="{ selected: this.isDone }" v-on:mouseover="showDelete = true" v-on:mouseleave="showDelete = false" >
+/*html*/`<li class="task" :class="{ selected: isDone }" v-on:mouseover="showDelete = true" v-on:mouseleave="showDelete = false" >
 			<input type="checkbox" v-on:change="toggleDone" class="u-visually-hidden task__input" :id="taskID" :name="taskID" v-on:focusin="showDelete = true" />
 			<label :for="taskID" class="task__title" :class="classList">{{ title }}</label>
 			<button type="button" class="task__delete" v-if="showDelete" v-on:click="deleteTask" v-on:focusout="showDelete = false" v-on:keydown.enter="$event.stopPropagation()"><span class="u-visually-hidden">Delete this task</span></button>

@@ -2,6 +2,7 @@ body, html, main{
 	font-family: 'Roboto', sans-serif;
 	background: $background-color;
 	height: 100%;
+	@include font-size(16, 24);
 }
 
 .container {

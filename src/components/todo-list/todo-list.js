@@ -6,18 +6,18 @@ import { AddButton } from '../add-button/add-button.js';
 let template =/*html*/`
 		<section class="container">
 			<form class="todo">
-				<div class="todo__loading" v-if="this.loading">
+				<div class="todo__loading" v-if="loading">
 					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 				</div>
 				<header class="todo__header">
 					<h1 class="todo__header__heading h3"  v-if="!overlayVisible">
-						{{ this.header }}
+						{{ header }}
 					</h1>
 					<AddButton v-on:addition="updateData" v-on:toggleOverlay="toggleOverlay"/>
 				</header>
 				<section v-if="!overlayVisible">
 					<ul class="todo__list">
-						<Task v-for="task in this.tasks" v-bind:key="task.id" :title="task.title" :id="task.id" :importance="task.importance" :isDoneInitial="task.isDone" v-on:deleted="updateData"/>
+						<Task v-for="task in tasks" v-bind:key="task.id" :title="task.title" :id="task.id" :importance="task.importance" :isDoneInitial="task.isDone" v-on:deleted="updateData"/>
 					</ul>
 				</section>
 			</form>

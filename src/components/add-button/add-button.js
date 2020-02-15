@@ -12,9 +12,9 @@ let template =
 							<li class="u-error" v-for="error in errors">{{ error }}</li>
 						</ul>
 					</div>
-					<label class="add-button__form-label" :class="{'u-error': this.checkDirtyTitle}" for="task-title">Enter your task title</label>
+					<label class="add-button__form-label" :class="{'u-error': checkDirtyTitle}" for="task-title">Enter your task title</label>
 					<input v-model="taskTitle" class="add-button__title-input" placeholder="Title here" type="text" id="task-title" name="task-title"/>
-					<label class="add-button__form-label" :class="{'u-error': this.checkDirtyImportance}" for="task-importance">Task importance</label>
+					<label class="add-button__form-label" :class="{'u-error': checkDirtyImportance}" for="task-importance">Task importance</label>
 					<select v-model="taskImportance" name="task-importance" id="task-importance" class="add-button__importance-input" >
 						<option value="">Select</option>
 						<option value="0">0 - High</option>
@@ -82,6 +82,7 @@ export let AddButton = {
 
 					if (!e.target.hasAttribute('data-addAnother')) {
 						this.overlayVisible = false;
+						this.$emit('toggleOverlay', true);
 					}
 				})
 				.catch((error) => {
