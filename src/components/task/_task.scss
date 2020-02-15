@@ -2,6 +2,7 @@
 	$opacity: 0.75;
 	$root: &;
 
+	position: relative;
 	margin-bottom: 8px;
 	@include font-size(22, 30);
 	font-weight: bold;
@@ -14,7 +15,7 @@
 	&__title {
 		cursor: pointer;
 		position: relative;
-		padding: 15px 15px 15px 75px;
+		padding: 15px 50px 15px 75px;
 		display: block;
 
 		@for $i from 0 through length($importance)-1 {
@@ -60,6 +61,23 @@
 
 		#{$root}.selected &::after {
 			display: block;
+		}
+	}
+
+	&__delete {
+		-webkit-appearance: none;
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		width: 40px;
+		height: 32px;
+
+		&::before {
+			content: "X";
+			@include font-size(32, 32);	
 		}
 	}
 }
