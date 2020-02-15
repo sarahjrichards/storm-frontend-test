@@ -16,7 +16,8 @@ let template =/*html*/`
 					<AddButton v-on:addition="updateData" v-on:toggleOverlay="toggleOverlay"/>
 				</header>
 				<section v-if="!overlayVisible">
-					<ul class="todo__list">
+					<p class="todo__all-done" v-if="!tasks.length"> No tasks in your list!</p>
+					<ul class="todo__list" v-if="tasks.length">
 						<Task v-for="task in tasks" v-bind:key="task.id" :title="task.title" :id="task.id" :importance="task.importance" :isDoneInitial="task.isDone" v-on:deleted="updateData" v-on:markedDone="updateData"/>
 					</ul>
 				</section>

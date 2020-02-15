@@ -36,4 +36,11 @@
 		align-content: center;
 		justify-content: center;
 	}
+
+	&__all-done {
+		margin-top: 40px;
+		@include font-size(24, 24);
+		font-weight: 800;
+		text-align: center;
+	}
 }
