@@ -17,7 +17,7 @@ let template =/*html*/`
 				</header>
 				<section v-if="!overlayVisible">
 					<ul class="todo__list">
-						<Task v-for="task in tasks" v-bind:key="task.id" :title="task.title" :id="task.id" :importance="task.importance" :isDoneInitial="task.isDone" v-on:deleted="updateData"/>
+						<Task v-for="task in tasks" v-bind:key="task.id" :title="task.title" :id="task.id" :importance="task.importance" :isDoneInitial="task.isDone" v-on:deleted="updateData" v-on:markedDone="updateData"/>
 					</ul>
 				</section>
 			</form>

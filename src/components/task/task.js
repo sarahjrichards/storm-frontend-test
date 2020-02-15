@@ -33,7 +33,7 @@ export let Task = {
 				{ isDone: this.isDoneToString() }
 			)
 			.then(() => {
-				console.log("success");
+				this.$emit('markedDone', true);
 			})
 			.catch((error) => {
 				console.log('error - unable to load data file');
